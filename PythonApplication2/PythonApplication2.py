@@ -18,7 +18,7 @@ NP = pd.read_csv(workDir + '_4_TNPPremium.csv')
 Fac = Fac.rename(columns= {'Policy No.':'Policy No','Insured':'Insured/CedingCompany','CURRENCY DESC':'CURRENCY','TreatyPeriod':'Duration','Policy INCEPTION DATE':'Inception Date','Policy EXPIRY DATE':'Expiry Date'})
 PT = PT.rename(columns= {'TREATY#':'Policy No','Ceding company':'Insured/CedingCompany','CURRENCY NAME':'CURRENCY','TreatyPeriod':'Duration'})
 NP = NP.rename(columns= {'TREATY#':'Policy No','Ceding company':'Insured/CedingCompany','CURRENCY NAME':'CURRENCY','TreatyPeriod':'Duration'})
-
+#check
 Fac['Inception Date']= pd.to_datetime(Fac['Inception Date']).dt.date
 PT['Inception Date']= pd.to_datetime(PT['Inception Date']).dt.date
 NP['Inception Date']= pd.to_datetime(NP['Inception Date']).dt.date
