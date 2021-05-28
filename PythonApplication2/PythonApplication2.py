@@ -13,9 +13,10 @@ Fac = pd.read_csv(workDir + '_4_FacPremium.csv')
 PT = pd.read_csv(workDir + '_4_TPPremium.csv')
 NP = pd.read_csv(workDir + '_4_TNPPremium.csv')
 
+## Better way of doing it
 
 
-Fac = Fac.rename(columns= {'Policy No.':'Policy No','Insured':'Insured/CedingCompany','CURRENCY DESC':'CURRENCY','TreatyPeriod':'Duration','Policy INCEPTION DATE':'Inception Date','Policy EXPIRY DATE':'Expiry Date'})
+Fac = Fac.rename(columns= {'Policy No.':'Policy No':'Insured/CedingCompany','CURRENCY DESC':'CURRENCY','TreatyPeriod':'Duration','Policy INCEPTION DATE':'Inception Date','Policy EXPIRY DATE':'Expiry Date'})
 PT = PT.rename(columns= {'TREATY#':'Policy No','Ceding company':'Insured/CedingCompany','CURRENCY NAME':'CURRENCY','TreatyPeriod':'Duration'})
 NP = NP.rename(columns= {'TREATY#':'Policy No','Ceding company':'Insured/CedingCompany','CURRENCY NAME':'CURRENCY','TreatyPeriod':'Duration'})
 #check
@@ -23,7 +24,8 @@ Fac['Inception Date']= pd.to_datetime(Fac['Inception Date']).dt.date
 PT['Inception Date']= pd.to_datetime(PT['Inception Date']).dt.date
 NP['Inception Date']= pd.to_datetime(NP['Inception Date']).dt.date
 
-PT['Expiry Date']= pd.to_datetime(PT['Expiry Date']).dt.date
+
+PT['Expiry']= pd.to_datetime(PT['Expiry Date']).dt.date
 
 #asd
 Fac = Fac.loc[:,['Policy No','Type','Insured/CedingCompany','CURRENCY','Country','Inception Date','Expiry Date','OUTWARD TREATY NO.','UwYr','ReservingClass','RiskShare','Duration','Gr_Signed_Prem','Gr_Signed_Prem','Gr_Booked_Prem','Gr_PipePr','Pr_Signed_Prem','Gr_Written_Prem','Gr_Booked_Ded','Gr_Signed_Ded','Gr_PipeDed','Gr_Written_Ded','UnearnedDays','UPRPerc','Gr_UPR','Gr_DAC','Pr_PipePr','Pr_Booked_Prem','Pr_Written_Prem','Pr_UPR','OR COMM','Pr_PipeDed','Pr_Booked_Ded','Pr_Written_Ded','Pr_DAC','Gr_Earned_Prem','Gr_Earned_Ded','Pr_Earned_Prem']]
